@@ -13,3 +13,14 @@ let proto = grpc.loadPackageDefinition(
         oneofs: true
     })
 )
+
+function Mensaje(call, callBack){
+    callBack (null, {
+        mensaje: `Hola ${call.request.nombre}, bienvenido a la UdeA`
+    })
+
+}
+
+server.addService(proto.inicio.Inicio.service, { Mensaje: Mensaje });
+server.bind(URL, grpc.ServerCredentials.createInsecure());
+server.start();
