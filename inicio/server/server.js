@@ -21,6 +21,6 @@ function Mensaje(call, callBack){
 
 }
 
-server.addService(proto.inicio.Inicio.service, { Mensaje: Mensaje });
+server.addService(proto.inicio.MensajeService.service, {Mensaje: Mensaje});
 server.bind(URL, grpc.ServerCredentials.createInsecure());
 server.start();

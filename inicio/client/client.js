@@ -19,7 +19,7 @@ let proto = grpc.loadPackageDefinition(
 
 const remoteURL = "0.0.0.0:2022";
 
-let client = new proto.inicio.Inicio(remoteURL, grpc.credentials.createInsecure());
+let client = new proto.inicio.MensajeService(remoteURL, grpc.credentials.createInsecure());
 
 reader.question("Ingrese su nombre: ", (nombre) => {
     client.Mensaje({ nombre: nombre }, (error, response) => {
